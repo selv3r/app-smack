@@ -39,8 +39,6 @@ class CreateAccountVC: UIViewController {
                     if success {
                         AuthService.instance.createUser(email: email, name: name, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             if success {
-                                print(UserDataService.instance.name)
-                                print(UserDataService.instance.avatarName)
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
                             }
                         })
@@ -51,10 +49,15 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func pickAvatarBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
     }
     
-    @IBOutlet weak var pickBGColorBtnPressed: UIButton!
     
+    @IBAction func pickBGColorBtnPressed(_ sender: Any) {
+    }
     
+    @IBAction func closeBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: UNWIND, sender: nil)
+    }
     
 }
