@@ -20,6 +20,7 @@
 		C708365720CCBF79003023CC /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C708365620CCBF79003023CC /* CreateAccountVC.swift */; };
 		C750F0F620D79C0D00B74E83 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750F0F520D79C0D00B74E83 /* AuthService.swift */; };
 		C750F0F820D8B7BD00B74E83 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750F0F720D8B7BD00B74E83 /* RoundedButton.swift */; };
+		C750F0FA20D8C3D300B74E83 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C750F0F920D8C3D300B74E83 /* UserDataService.swift */; };
 		F65F7814774D0A8831DE6082 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52730FF88D40ECD11810A4E9 /* Pods_Smack.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		C708365620CCBF79003023CC /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		C750F0F520D79C0D00B74E83 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C750F0F720D8B7BD00B74E83 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		C750F0F920D8C3D300B74E83 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		FDEF30CBE0967EB21EF99EDA /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C750F0F520D79C0D00B74E83 /* AuthService.swift */,
+				C750F0F920D8C3D300B74E83 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				C708364E20CC1EC2003023CC /* ChannelVC.swift in Sources */,
 				C750F0F820D8B7BD00B74E83 /* RoundedButton.swift in Sources */,
 				C708364C20CC1EB3003023CC /* ChatVC.swift in Sources */,
+				C750F0FA20D8C3D300B74E83 /* UserDataService.swift in Sources */,
 				C708365720CCBF79003023CC /* CreateAccountVC.swift in Sources */,
 				C750F0F620D79C0D00B74E83 /* AuthService.swift in Sources */,
 				C708365520CCB97E003023CC /* LoginVC.swift in Sources */,
