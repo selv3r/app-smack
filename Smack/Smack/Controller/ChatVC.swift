@@ -24,6 +24,14 @@ class ChatVC: UIViewController {
         
         //tap to make the ChannelVC disappear
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        
+        if AuthService.instance.isLoggedIn {
+            AuthService.instance.findUserByEmail(completion: { (success) in
+                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+            })
+        }
+        
     }
 
 

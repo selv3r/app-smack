@@ -101,26 +101,6 @@ class AuthService {
         
     } //Login User Function
     
-    /*func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler) {
-        
-        let lowerCaseEmail = email.lowercased()
-        
-        let body: [String: Any] = [
-            "name": name,
-            "email": lowerCaseEmail,
-            "avatarName": avatarName,
-            "avatarColor": avatarColor
-        ]
-        
-        let header: [String: Any] = [
-            "Authorization": "Bearer \(AuthService.instance.authToken)",
-            "Content-Type": "application/json; charset=utf-8"
-        ]
-        
-        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)
-        
-    } //Create User Function */
-    
     func createUser(email: String, name:String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler) {
         
         let lowerCaseEmail = email.lowercased()
@@ -137,21 +117,11 @@ class AuthService {
             if response.result.error == nil {
                 
                 guard let data = response.data else {return}
-                do {
-                    let json = try JSON(data: data)
-                    let id = json["_id"].stringValue
-                    let name = json["name"].stringValue
-                    let email = json["email"].stringValue
-                    let avatarColor = json["avatarColor"].stringValue
-                    let avatarName = json["avatarName"].stringValue
-                    
-                    UserDataService.instance.setUserData(id: id, avatarColor: avatarColor, avatarName: avatarName, email: email, name: name)
-                    
-                    completion(true)
-                } catch let error as NSError {
-                    print(error)
-                }
                 
+                self.setUserInfo(data: data)
+                
+                completion(true)
+
             } else {
                 completion(false)
                 debugPrint(response.result.error as Any)
@@ -163,10 +133,40 @@ class AuthService {
 
     
     
+    func findUserByEmail(completion: @escaping CompletionHandler) {
+        
+        Alamofire.request("\(URL_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: AUTH_HEADER).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                
+                guard let data = response.data else {return}
+                self.setUserInfo(data: data)
+                completion(true)
+                
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        
+        }
+    } //Find User By Email
     
     
-    
-    
+    func setUserInfo(data: Data) {
+        do {
+            let json = try JSON(data: data)
+            let id = json["_id"].stringValue
+            let name = json["name"].stringValue
+            let email = json["email"].stringValue
+            let avatarColor = json["avatarColor"].stringValue
+            let avatarName = json["avatarName"].stringValue
+            
+            UserDataService.instance.setUserData(id: id, avatarColor: avatarColor, avatarName: avatarName, email: email, name: name)
+            
+        } catch let error as NSError {
+            print(error)
+        }
+    }
     
     
     
